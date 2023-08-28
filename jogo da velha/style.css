@@ -1,0 +1,27 @@
+#board {
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+.cell {
+    border: 1px solid black;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    font-size: 60px;
+    cursor: pointer;
+}
+
+.cell:hover {
+    background-color: lightgray;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+#reset {
+    margin-top: 20px;
+}
