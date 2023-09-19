@@ -1,0 +1,90 @@
+:root {
+    --cube-width: 300px;
+    --translateZ: 150px;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+    background: #000;
+  }
+  
+  header {
+    color: #eee;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: space-between;
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 100px;
+  }
+  
+  header .sub-heading {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .cube-container {
+    perspective: 1000px;
+  }
+  
+  .cube-container .cube {
+    width: var(--cube-width);
+    height: var(--cube-width);
+    transform-style: preserve-3d;
+  }
+  
+  .cube-container .cube-face {
+    width: var(--cube-width);
+    height: var(--cube-width);
+    position: absolute;
+    font-size: 30px;
+    background: #9400D3;
+    color: #000;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .cube-container .front {
+    background: #9932CC;
+    transform: translateZ(var(--translateZ));
+  }
+  
+  .cube-container .back {
+    background: #BA55D3;
+    transform: rotateY(180deg) translateZ(var(--translateZ));
+  }
+  
+  .cube-container .left {
+    background: #A020F0;
+    color: #000;
+    transform: rotateY(-90deg) translateZ(var(--translateZ));
+  }
+  
+  .cube-container .right {
+    background: #8B008B;
+    color: #000;
+    transform: rotateY(90deg) translateZ(var(--translateZ));
+  }
+  
+  .cube-container .top {
+    background: #4B0082;
+    transform: rotateX(90deg) translateZ(var(--translateZ));
+  }
+  
+  .cube-container .bottom {
+    background: #FF00FF;
+    transform: rotateX(-90deg) translateZ(var(--translateZ));
+  }
