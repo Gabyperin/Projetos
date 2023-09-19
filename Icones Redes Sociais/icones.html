@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+<head>
+  <meta charset="UTF-8">
+  <title>Gaby®</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<style>
+    *{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+body{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  background: #121213;
+}
+.menu{
+  position:relative;
+ width:280px;
+  height:280px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.menu .toggle{
+  position:relative;
+  height:60px;
+  width:60px;
+  background:#4d4d4d;
+  border-radius:50%;
+  box-shadow:0 3px 4px rgba(0,0,0,0.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#000000;
+  font-size:2rem;
+  cursor:pointer;
+  transition:1.25s;
+  z-index:5;
+}
+.menu.active .toggle{
+  transform:rotate(360deg);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.15),
+    0 0 0 2px #333,
+    0 0 0 8px #4d4d4d;
+}
+.menu li{
+  position:absolute;
+  left:0;
+  list-style:none;
+  transition:0.5s;
+  transform:rotate(calc(360deg/8 * var(--i)));
+  transform-origin:140px;
+  scale:0;
+  transition-delay: calc(0.05s * var(--i));
+}
+.menu.active li{
+  scale:1;
+}
+.menu li a{
+  position:relative;
+  display:flex;
+ transform:rotate(calc(360deg/-8 * var(--i)));
+  width:60px;
+  height:60px;
+  background-color:#4d4d4d;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  font-size:1.75rem;
+  color:var(--clr);
+   box-shadow:0 3px 4px rgba(131, 26, 201, 0.15);
+  transition:0.5s;
+  content: attr(data-text); 
+}
+.menu li:hover a{
+  font-size:2.5rem;
+  box-shadow:0 0 0 2px var(--clr),
+    0 0 0 6px #4d4d4d;
+}
+
+.menu li a ion-icon::before {
+  content: attr(data-text);
+}
+
+.menu li a ion-icon {
+  display: inline-block;
+  font-size: 24px; 
+}
+</style>
+
+
+  <div class="menu">
+    <div class="toggle">
+      <ion-icon name="finger-print-sharp"></ion-icon>
+    </div>
+    
+    <li style="--i:0;--clr:#1877f2">
+      <a href="" data-text="Facebook" target="new"><ion-icon name="logo-facebook"></ion-icon></a>
+    </li>
+    <li style="--i:1;--clr:#25d366">
+      <a href="" data-text="WhatsApp" target="new"><ion-icon name="logo-whatsapp"></ion-icon></a>
+    </li>
+    <li style="--i:2;--clr:#1da1f2">
+      <a href="" data-text="Twitter" target="new"><ion-icon name="logo-twitter"></ion-icon></a>
+    </li>
+    <li style="--i:3;--clr:#FF5733">
+      <a href="" data-text="Python" target="new"><ion-icon name="logo-python"></ion-icon></a>
+    </li>
+    <li style="--i:4;--clr:#0a66c2">
+      <a href="" data-text="LinkedIn" target="new"><ion-icon name="logo-linkedin"></ion-icon></a>
+    </li>
+    <li style="--i:5;--clr:#c32aa3">
+      <a href="" data-text="Instagram" target="new"><ion-icon name="logo-instagram"></ion-icon></a>
+    </li>
+    <li style="--i:6;--clr:#1b1e21">
+      <a href="" data-text="GitHub" target="new"><ion-icon name="logo-octocat"></ion-icon></a>
+    </li>
+    <li style="--i:7;--clr:#ff0000">
+      <a href="" data-text="YouTube" target="new"><ion-icon name="logo-youtube"></ion-icon></a>
+    </li>
+  </div>
+
+  <script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js'></script>
+  <script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'></script>
+
+  <script>
+    const menu=document.querySelector(".menu");
+    const toggle=document.querySelector(".toggle");
+    toggle.addEventListener("click",()=>{
+    menu.classList.toggle("active");
+})
+</script>
+</body>
+</html>
